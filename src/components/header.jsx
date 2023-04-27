@@ -1,0 +1,1 @@
+export const Header = () => <h1 className="project-name">{`Raj's Mail`}</h1>;
