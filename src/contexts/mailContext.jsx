@@ -37,12 +37,20 @@ export const MailDataHandler = ({children}) =>{
         }
     }
 
+    const starMail = (mailId) => {
+        dispatch({
+            type: STAR_MAIL,
+            payload: mailId
+        })
+        console.log(state.allMails);
+    }
+
     const filteredData = state.allMails.filter((mail) => (
         state.checked.every(checkbox => mail[checkbox])
       ))
 
     return(
-        <MailContext.Provider value={{checkBoxHandler, filteredData}}>
+        <MailContext.Provider value={{checkBoxHandler, filteredData, starMail}}>
             {children}
         </MailContext.Provider>
     );

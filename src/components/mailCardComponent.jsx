@@ -1,20 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 
-// import { useContext } from "react"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { MailContext } from "../contexts/mailContext"
 
 export const MailCardComponent = ({mailData}) =>{
+    const {starMail} = useContext(MailContext)
     return(
         <div key={mailData?.mId} className={mailData?.unread ? `read-mails mails` : `mails`}>
           <h3 className="mail-subject"> {`Subject: ${mailData?.subject}`} </h3>
-          {mailData?.isStarred ? (
-            <button className="star">★</button>
-          ) : (
-            <button className="star" onClick={() => starMail(mailData?.mId)}>
-              ☆
-            </button>
-          )}
+          <button className="star" onClick={() => starMail(mailData?.mId)}>
+            {mailData?.isStarred ? '★' : '☆'}
+          </button>
           <p className="mail-content">{mailData?.content}</p>
           <Link to={`details/${mailData?.mId}`} className="details">
             View Details
