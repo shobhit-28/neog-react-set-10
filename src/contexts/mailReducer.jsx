@@ -20,7 +20,7 @@ export const mailReducer = (state, action) => {
         case ADD_TO_TRASH:
             return {
                 ...state,
-                trash:[...state.trash, action.payload],
+                trash: [...state.trash, action.payload],
                 allMails: state.allMails.filter(({mId}) => mId !== action.payload.mId ),
                 spam: state.spam.filter(({mId}) => mId !== action.payload.mId )
             }
@@ -66,7 +66,7 @@ export const mailReducer = (state, action) => {
         case DELETE_PERMANENTLY:
             return{
                 ...state,
-                trash: state.trash.filter(({mId}) => mId !== action.payload.mId )
+                trash: state.trash.filter(({mId}) => mId !== action.payload )
             }
         
         default:
