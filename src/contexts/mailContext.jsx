@@ -12,7 +12,8 @@ export const MailDataHandler = ({children}) =>{
         ADD_TO_TRASH,
         ADD_TO_CHECKED,
         REMOVE_FROM_CHECKED,
-        STAR_MAIL } = types
+        STAR_MAIL,
+        MARK_AS_READ } = types
 
     const initialState = {
         allMails: mails,
@@ -45,12 +46,33 @@ export const MailDataHandler = ({children}) =>{
         console.log(state.allMails);
     }
 
+    const addToSpam = (mailData) => {
+        dispatch({
+            type:ADD_TO_SPAM,
+            payload:mailData
+        })
+    } 
+
+    const addToTrash = (mailData)=>{
+        dispatch({
+            type:ADD_TO_TRASH,
+            payload:mailData
+        })
+    }
+
+    const markAsRead = (mailID) => {
+        dispatch({
+            type:MARK_AS_READ,
+            payload:mailID
+        })
+    }
+
     const filteredData = state.allMails.filter((mail) => (
         state.checked.every(checkbox => mail[checkbox])
       ))
 
     return(
-        <MailContext.Provider value={{checkBoxHandler, filteredData, starMail}}>
+        <MailContext.Provider value={{checkBoxHandler, filteredData, starMail, addToSpam, addToTrash, markAsRead}}>
             {children}
         </MailContext.Provider>
     );

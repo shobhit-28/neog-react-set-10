@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import { MailContext } from "../contexts/mailContext"
 
 export const MailCardComponent = ({mailData}) =>{
-    const {starMail} = useContext(MailContext)
+    const {starMail, addToSpam, addToTrash, markAsRead} = useContext(MailContext)
     return(
         <div key={mailData?.mId} className={mailData?.unread ? `read-mails mails` : `mails`}>
           <h3 className="mail-subject"> {`Subject: ${mailData?.subject}`} </h3>
@@ -17,9 +17,11 @@ export const MailCardComponent = ({mailData}) =>{
           <Link to={`details/${mailData?.mId}`} className="details">
             View Details
           </Link>
-          <button className="mail-action-btn">Delete</button>
-          <button className="mail-action-btn">Mark as Read</button>
-          <button className="mail-action-btn">Report Spam</button>
+          <button className="mail-action-btn" onClick={() => addToTrash(mailData)}>Delete</button>
+          <button className="mail-action-btn" onClick={() => markAsRead(mailData?.mId)}>
+            {mailData.unread? 'Mark as Read' : 'Mark as Unread'}
+          </button>
+          <button className="mail-action-btn" onClick={() => addToSpam(mailData)}>Report Spam</button>
         </div>
     )
 }
