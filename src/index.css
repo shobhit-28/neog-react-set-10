@@ -39,6 +39,9 @@
     float: right;
     margin: 0 0.5rem !important;
   }
+  .single-mail{
+    margin-left: 10rem !important;
+  }
 }
 
 /* Heading */
@@ -136,4 +139,26 @@
   padding: 0.2rem 0.5rem;
   cursor: pointer;
   color: #002b5b;
+}
+
+
+/* single-mail */
+
+.single-mail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+.single-mail h1{
+  font-family: "Castoro Titling", cursive;
+  color: #002b5b;
+  margin: 1rem auto;
+  font-size: 3rem;
+}
+.single-mail p{
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-size: 1.5rem;
 }

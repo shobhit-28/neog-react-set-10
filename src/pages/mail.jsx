@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom"
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
+import { MailContext } from "../contexts/mailContext";
+import { SingleMailCard } from "../components/singleMailCard";
 
 export const Mail = () => {
+    const {filteredData} = useContext(MailContext)
     const {mailID} = useParams();
-    console.log(mailID);
+    const Mail = filteredData.find(({mId}) => mId === mailID );
     return (
-        <>
-            <h3>
-                {`Mail-> ${mailID}`}
-            </h3>
-        </>
+        <SingleMailCard mail={Mail} />
     )
 }
