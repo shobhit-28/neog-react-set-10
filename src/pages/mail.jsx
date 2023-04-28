@@ -1,13 +1,11 @@
 import { useParams } from "react-router-dom"
+import { SingleMailCard } from "../components/singleMailCard";
+import { mails } from "../data/mailData";
 
 export const Mail = () => {
     const {mailID} = useParams();
-    console.log(mailID);
+    const mail = mails.find(({mId}) => mId === mailID )
     return (
-        <>
-            <h3>
-                {`Mail-> ${mailID}`}
-            </h3>
-        </>
+        <SingleMailCard mail={mail} />
     )
 }

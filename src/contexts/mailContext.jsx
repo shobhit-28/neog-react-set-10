@@ -76,21 +76,38 @@ export const MailDataHandler = ({children}) =>{
         })
     }
 
+    const recoverMail = (mail) => {
+        dispatch({
+            type: REMOVE_FROM_TRASH,
+            payload: mail
+        })
+    }
+
+    const deletePermanently = (mailID) => {
+        dispatch({
+            type: DELETE_PERMANENTLY,
+            payload: mailID
+        })
+    }
+
     const filteredData = state.allMails.filter((mail) => (
         state.checked.every(checkbox => mail[checkbox])
       ))
 
     return(
-        <MailContext.Provider value={
-            {checkBoxHandler,
+        <MailContext.Provider value={{
+            checkBoxHandler,
             filteredData, 
             starMail, 
             addToSpam, 
             addToTrash, 
             markAsRead, 
             spam: state.spam, 
-            removeFromSpam}
-        }>
+            removeFromSpam,
+            recoverMail,
+            deletePermanently,
+            trash: state.trash,
+        }}>
             {children}
         </MailContext.Provider>
     );

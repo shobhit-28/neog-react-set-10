@@ -39,6 +39,9 @@
     float: right;
     margin: 0 0.5rem !important;
   }
+  .single-mail{
+    margin-left: 10rem !important;
+  }
 }
 
 /* Heading */
@@ -144,4 +147,25 @@
   margin: 1rem auto;
   font-family: "Bruno Ace SC", cursive;
   color: #0A4D68;
+}
+
+/* single-mail */
+
+.single-mail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.single-mail h1 {
+  font-family: "Castoro Titling", cursive;
+  color: #002b5b;
+  font-size: 3rem;
+  margin: 1rem auto;
+}
+.single-mail p{
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-size: 1.5rem;
 }

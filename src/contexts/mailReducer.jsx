@@ -55,6 +55,19 @@ export const mailReducer = (state, action) => {
                 spam: state.spam.filter(({mId}) => mId !== action.payload.mId ),
                 allMails: [...state.allMails, action.payload]
             }
+
+        case REMOVE_FROM_TRASH:
+            return{
+                ...state,
+                trash: state.trash.filter(({mId}) => mId !== action.payload.mId ),
+                allMails: [...state.allMails, action.payload]
+            }
+
+        case DELETE_PERMANENTLY:
+            return{
+                ...state,
+                trash: state.trash.filter(({mId}) => mId !== action.payload.mId )
+            }
         
         default:
             return state;
