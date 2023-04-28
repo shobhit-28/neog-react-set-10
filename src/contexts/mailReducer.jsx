@@ -6,7 +6,10 @@ export const mailReducer = (state, action) => {
         ADD_TO_CHECKED,
         REMOVE_FROM_CHECKED,
         STAR_MAIL,
-        MARK_AS_READ } = types
+        MARK_AS_READ,
+        DELETE_PERMANENTLY,
+        REMOVE_FROM_TRASH,
+        REMOVE_FROM_SPAM } = types
     switch (action.type) {
         case ADD_TO_SPAM:
             return { ...state, 
@@ -18,7 +21,8 @@ export const mailReducer = (state, action) => {
             return {
                 ...state,
                 trash:[...state.trash, action.payload],
-                allMails: state.allMails.filter(({mId}) => mId !== action.payload.mId )
+                allMails: state.allMails.filter(({mId}) => mId !== action.payload.mId ),
+                spam: state.spam.filter(({mId}) => mId !== action.payload.mId )
             }
 
         case ADD_TO_CHECKED:
@@ -45,6 +49,13 @@ export const mailReducer = (state, action) => {
                 allMails: state.allMails.map((obj) => obj.mId === action.payload ? {...obj, unread: !obj.unread} : obj)
             }
 
+        case REMOVE_FROM_SPAM:
+            return{
+                ...state,
+                spam: state.spam.filter(({mId}) => mId !== action.payload.mId ),
+                allMails: [...state.allMails, action.payload]
+            }
+        
         default:
             return state;
     }

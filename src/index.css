@@ -137,3 +137,11 @@
   cursor: pointer;
   color: #002b5b;
 }
+
+/* sub-heading */
+
+.sub-heading{
+  margin: 1rem auto;
+  font-family: "Bruno Ace SC", cursive;
+  color: #0A4D68;
+}

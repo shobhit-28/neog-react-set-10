@@ -8,7 +8,7 @@ export const Inbox = () => {
     return (
         <>
             <FilterComponent/>
-            {filteredData.map((mailData) => <MailCardComponent mailData={mailData} key={mailData?.mId} /> )}
+            {filteredData.map((mailData) => <MailCardComponent mailData={mailData}key={mailData?.mId} /> )}
         </>
     )
 }
