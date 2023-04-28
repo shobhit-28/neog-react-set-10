@@ -9,12 +9,12 @@ export const MailCardComponent = ({mailData}) =>{
     const {starMail, addToSpam, addToTrash, markAsRead} = useContext(MailContext)
     return(
         <div key={mailData?.mId} className={mailData?.unread ? `read-mails mails` : `mails`}>
-          <h3 className="mail-subject"> {`Subject: ${mailData?.subject}`} </h3>
+          <Link to={`mail/${mailData?.mId}`}><h3 className="mail-subject"> {`Subject: ${mailData?.subject}`}</h3></Link>
           <button className="star" onClick={() => starMail(mailData?.mId)}>
             {mailData?.isStarred ? '★' : '☆'}
           </button>
           <p className="mail-content">{mailData?.content}</p>
-          <Link to={`details/${mailData?.mId}`} className="details">
+          <Link to={`mail/${mailData?.mId}`} className="details">
             View Details
           </Link>
           <button className="mail-action-btn" onClick={() => addToTrash(mailData)}>Delete</button>
