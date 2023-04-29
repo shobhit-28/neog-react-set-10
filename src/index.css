@@ -42,6 +42,12 @@
   .single-mail{
     margin-left: 10rem !important;
   }
+  .empty-img{
+    width: 50%;
+  }
+  .empty-inbox-img{
+    width: 40%;
+  }
 }
 
 /* Heading */
@@ -173,8 +179,8 @@
 /* empty-case-images */
 
 .empty-img{
-  width: 50%;
+  width: 100%;
 }
 .empty-inbox-img{
-  width: 40%;
+  width: 80%;
 }
