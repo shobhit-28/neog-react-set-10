@@ -43,10 +43,10 @@
     margin-left: 10rem !important;
   }
   .empty-img{
-    width: 50%;
+    width: 50% !important ;
   }
   .empty-inbox-img{
-    width: 40%;
+    width: 40% !important;
   }
 }
 
